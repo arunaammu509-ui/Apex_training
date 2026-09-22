@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>User Login</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>👤 User Login</h1>
+
+
+        <form
+            action="/user/login"
+            method="post"
+        >
+
+            <input
+                type="number"
+                name="account_id"
+                placeholder="Account Number"
+                min="1"
+                required
+            >
+
+
+            <input
+                type="password"
+                name="login_password"
+                placeholder="Login Password"
+                required
+            >
+
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+
+        <br>
+
+        <a href="/">
+            Back to Home
+        </a>
+
+    </div>
+
+</body>
+
+</html>
