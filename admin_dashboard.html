@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <h1>🛡️ Admin Dashboard</h1>
+
+
+    <div class="top-menu">
+
+
+        <a href="/">
+
+            <button type="button">
+                Home
+            </button>
+
+        </a>
+
+
+        <a href="/user/login">
+
+            <button type="button">
+                User Login
+            </button>
+
+        </a>
+
+
+        <a href="/logout">
+
+            <button type="button">
+                Logout
+            </button>
+
+        </a>
+
+    </div>
+
+
+    <!-- CREATE ACCOUNT -->
+
+    <div class="box">
+
+        <h2>Create Account</h2>
+
+
+        <form
+            action="/admin/create"
+            method="post"
+        >
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Account Holder Name"
+                required
+            >
+
+
+            <input
+                type="password"
+                name="login_password"
+                placeholder="Login Password"
+                required
+            >
+
+
+            <input
+                type="number"
+                name="balance"
+                placeholder="Opening Balance"
+                min="0"
+                step="0.01"
+                required
+            >
+
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- ALL ACCOUNTS -->
+
+    <h2>All Bank Accounts</h2>
+
+
+    <table>
+
+        <tr>
+
+            <th>Account Number</th>
+
+            <th>Name</th>
+
+            <th>Balance</th>
+
+            <th>Last Transaction</th>
+
+            <th>Action</th>
+
+        </tr>
+
+
+        {% if accounts %}
+
+            {% for account in accounts %}
+
+            <tr>
+
+                <td>
+                    {{ account.account_id }}
+                </td>
+
+                <td>
+                    {{ account.name }}
+                </td>
+
+                <td>
+                    ₹ {{ account.balance }}
+                </td>
+
+                <td>
+                    {{ account.transaction_time }}
+                </td>
+
+                <td>
+
+                    <form
+                        action="/admin/delete"
+                        method="post"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="account_id"
+                            value="{{ account.account_id }}"
+                        >
+
+                        <button type="submit">
+                            Delete
+                        </button>
+
+                    </form>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+
+                <td colspan="5">
+                    No accounts available
+                </td>
+
+            </tr>
+
+        {% endif %}
+
+    </table>
+
+
+    <!-- ALL TRANSACTIONS -->
+
+    <h2>All Transactions</h2>
+
+
+    <table>
+
+        <tr>
+
+            <th>Transaction ID</th>
+
+            <th>Account Number</th>
+
+            <th>Name</th>
+
+            <th>Type</th>
+
+            <th>Amount</th>
+
+            <th>Date & Time</th>
+
+        </tr>
+
+
+        {% if transactions %}
+
+            {% for transaction in transactions %}
+
+            <tr>
+
+                <td>
+                    {{ transaction.transaction_id }}
+                </td>
+
+                <td>
+                    {{ transaction.account_id }}
+                </td>
+
+                <td>
+                    {{ transaction.name }}
+                </td>
+
+                <td>
+                    {{ transaction.type }}
+                </td>
+
+                <td>
+                    ₹ {{ transaction.amount }}
+                </td>
+
+                <td>
+                    {{ transaction.transaction_time }}
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+
+                <td colspan="6">
+                    No transactions available
+                </td>
+
+            </tr>
+
+        {% endif %}
+
+    </table>
+
+
+</body>
+
+</html>
