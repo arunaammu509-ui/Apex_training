@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #1877A8;
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+}
+
+h1, h2, p {
+    color: black;
+}
+
+.home {
+    margin-top: 80px;
+}
+
+.login-options,
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.box {
+    background: white;
+    color: black;
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #555;
+    max-width: 450px;
+}
+
+input {
+    display: block;
+    width: 90%;
+    padding: 12px;
+    margin: 12px auto;
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: black;
+}
+
+button {
+    padding: 12px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    background: white;
+    color: black;
+}
+
+button:hover {
+    background: #e6e6e6;
+}
+
+.top-menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    color: black;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #999;
+}
+
+th {
+    background: #145A7A;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
